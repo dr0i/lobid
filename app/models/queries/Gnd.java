@@ -102,11 +102,11 @@ public class Gnd {
 									"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily.@value",
 									"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName.@value",
 									"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value",
-									"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading.@value",
+									"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading.@value^100",
 									"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading.@value",
 									"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork.@value",
 									"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheWork.@value",
-									"@graph.http://d-nb.info/standards/elementset/gnd#preferredName.@value",
+									"@graph.http://d-nb.info/standards/elementset/gnd#preferredName.@value^100",
 									"@graph.http://d-nb.info/standards/elementset/gnd#variantName.@value"));
 			fields.addAll(new IdQuery().fields());
 			return fields;
@@ -114,9 +114,10 @@ public class Gnd {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return multiMatchQuery(queryString, fields().toArray(new String[] {}));
-		}
+			return multiMatchQuery(queryString, fields().toArray(new String[] {}))
+					.tieBreaker(1.0f);
 
+		}
 	}
 
 }
