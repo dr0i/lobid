@@ -17,16 +17,16 @@ ACTION=$2
 PORT=$3
 JAVA_OPTS="$4"
 
-HOME="/home/sol"
+HOME="/home/shared/data/git/github/dr0i/"
 
 # it is important to set the proper locale
-. $HOME/.locale
+#. $HOME/.locale
 
-cd $HOME/git/$REPO
+#cd $HOME/git/$REPO
 case $ACTION in
 	start)
-		kill $(cat target/universal/stage/RUNNING_PID)
-		JAVA_OPTS="$JAVA_OPTS" $HOME/activator-1.2.10-minimal/activator "start $PORT"
+		#kill $(cat target/universal/stage/RUNNING_PID)
+		JAVA_OPTS="$JAVA_OPTS" $HOME/activator-1.3.5-minimal/activator "start $PORT"
 		;;
 	stop)
 		kill $(cat target/universal/stage/RUNNING_PID)

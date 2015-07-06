@@ -10,7 +10,7 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
       javaCore,
       cache,
-      "com.typesafe.play" % "play-test_2.11" % "2.3.4",
+      "com.typesafe.play" % "play-test_2.11" % "2.4.2",
       "org.elasticsearch" % "elasticsearch" % "1.3.2" withSources(),
       "org.lobid" % "lodmill-ld" % "2.0.1",
       "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test",
@@ -19,7 +19,7 @@ object ApplicationBuild extends Build {
     )
     
     val main = Project(appName, file(".")).enablePlugins(play.PlayJava).settings(
-      scalaVersion := "2.11.2",
+      scalaVersion := "2.11.6",
       parallelExecution in Test := false,
       resolvers := Seq(
           "codehaus" at "http://repository.codehaus.org/org/codehaus", 
