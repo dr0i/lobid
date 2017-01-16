@@ -1,4 +1,4 @@
-The first table consists of fields which will be no longer used in RDA. It builds on https://github.com/hbz/lobid/issues/161#issuecomment-272420198. The second table contains the rest.  
+The first table consists of fields which will be no longer used in RDA. It builds on https://github.com/hbz/lobid/issues/161#issuecomment-272420198. The second table contains the rest. For field 050 I used number.option to indicate the "depth" of the field. 
 
 Number MAB2 | Field name MAB2 | if & how transformed to RDF
 ---------- | -------------- | ------------------------
@@ -54,7 +54,7 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 040	|	NOTATION FUER NORMDATEN | -
 041	|	NOTATIONSSPEZIFISCHE CODIERUNGEN | -
 050	|	DATENTRAEGER | Mapping: 0.a -> rdvocab.info/termList/prodManuscript/1002 (wasn't found), 3 -> RDACarrierType/1020, 4.a -> purl.org/library/BrailleBook and RDAproductionMethod/1010, 5.a -> bibo/AudioDocument, 5.ad -> purl.org/library/CassetteTape, 5.b and 5.c -> bibo/AudioVisualDocument and RDACarrierType/1050, 5.d -> bibo/Image, 6.aj -> mo/Vinyl and bibo/AudioDocument, 7.a -> RDAproductionMethod/1010 and http://iflastandards.info/ns/isbd/terms/mediatype/T1008, 8 -> http://rdvocab.info/termList/RDACarrierType/1010, 9.a -> purl.org/library/Game, 10.a -> bibo/Map. Used for bibo/book if other publication types don't fit.
-051	|	VEROEFFENTLICHUNGSSPEZIFISCHE ANGABEN ZU BEGRENZTEN WERKEN | Mapping: [nt]. -> bibo/MultiVolumeBook, , .b -> bibo/Bibliography, .d -> bibo/ReferenceSource, .e -> bibo/ReferenceSource, .f -> Festschrift, .h -> bibo/Biography, .k -> bibo/Proceedings, .l -> [ns-lobid-vocab]Legislation, .m -> mo/PublishedScore, , .n -> bibo/Standard, .r -> bibo/Report, .t -> bibo/Article, .u -> bibo/Thesis, .x -> bibo/Schoolbook, All Kennzeichnung Amtlicher Druckschriften -> [ns-lobid-vocab]OfficialPublication. Not used: .a, .c, .g, .i, .j, .o, .p, .q, .s, .v, .z. Used for bibo/book if 050 fits and other publication types don't.
+051	|	VEROEFFENTLICHUNGSSPEZIFISCHE ANGABEN ZU BEGRENZTEN WERKEN | Mapping: [nt]. -> bibo/MultiVolumeBook, .b -> bibo/Bibliography, .d -> bibo/ReferenceSource, .e -> bibo/ReferenceSource, .f -> Festschrift, .h -> bibo/Biography, .k -> bibo/Proceedings, .l -> [ns-lobid-vocab]Legislation, .m -> mo/PublishedScore, , .n -> bibo/Standard, .r -> bibo/Report, .t -> bibo/Article, .u -> bibo/Thesis, .x -> bibo/Schoolbook, All Kennzeichnung Amtlicher Druckschriften -> [ns-lobid-vocab]OfficialPublication. Not used: .a, .c, .g, .i, .j, .o, .p, .q, .s, .v, .z. Used for bibo/book if 050 fits and other publication types don't.
 052	|	VEROEFFENTLICHUNGSSPEZIFISCHE ANGABEN ZU FORTLAUFENDEN SAMMELWERKEN | Mapping:  .aa -> [ns-lobid-vocab]OfficialPublication, .ao -> bibo/Newspaper, .ag -> [ns-lobid-vocab]Legislation, .au -> bibo/Article, .bi -> [ns-lobid-vocab]Bibliography, .bg -> [ns-lobid-vocab]Biography,  .eo -> bibo/Newspaper, .ez  -> bibo/ReferenceSource, .il -> bibo/Journal, .ko -> bibo/Proceedings, .lp -> bibo/Newspaper, .mu -> .mo/PublishedScore, .no -> bibo/Standard, .rp -> bibo/Newspaper, sc -> bibo/Thesis, .se -> bibo/Series, .up -> bibo/Newspaper. Not used: .ab, .am, .az, .kt, .da, .di, .es, .ft, .fz, .fb, .ha, .in, .li, .lo, .me, .mg, .pa, .pt, .re, .rf, .rg, .so, .st, .ub, .uu, .xj. Used for bibo/book if 050 fits and other publication types don't.
 053	|	NACHLAESSE UND AUTOGRAPHEN | -
 057	|	MATERIALSPEZIFISCHE CODES FUER MIKROFORMEN | Mapped on RDACarrierType/1020
@@ -73,8 +73,8 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 080	|	ZUGRIFFS- UND UPDATE-ANWEISUNGEN | -
 081	|	FREI DEFINIERBARE ANWENDERSPEZIFISCHE ANGABEN, KENNZEICHEN UND CODES | -
 088	|	FREI DEFINIERBARE ANWENDERSPEZIFISCHE ANGABEN, KENNZEICHEN UND CODES | Used for creating reset item id.
-089	|	Bandangaben in Vorlageform |
-090	|	Bandangaben in Sortierform |
+089	|	Bandangaben in Vorlageform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number. One of the alternatives for non-existing 425.
+090	|	Bandangaben in Sortierform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number.
 100	|	Name der 1. Person in Ansetzungsform |
 101	|	Verweisungsformen zum Namen der 1. Person |
 102	|	Identifikationsnummer des Personennamensatzes der 1. Person |
@@ -156,56 +156,56 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 493	|	Identifikationsnummer des 5. Gesamttitels |
 495	|	Bandangabe|
 496	|	Bandangabe in Sortierform |
-501	|	Sammelfeld für unaufgegliederte Fußnoten |
-503	|	Deutsche Übersetzung des Hauptsachtitels bzw. Hinweis auf die musikalische Form |
-505	|	Angabe von Nebentiteln |
-507	|	Angaben zum Hauptsachtitel und zu den Zusätzen |
-508	|	Angabe der Quelle der Aufnahme |
-509	|	Vermerke zur Verfasserangabe |
-510	|	Angaben zur Ausgabebezeichnung |
-511	|	Angaben zum Erscheinungsvermerk |
-512	|	Angaben zum Kollationsvermerk bzw. zur physischen Beschreibung |
-513	|	Änderungen im Impressum |
-515	|	Ergänzungen zur Gesamttitelangabe |
-516	|	Angaben über Schrift, Sprache und Vollständigkeit der Vorlage und musikalische Notation |
-518	|	Angabe der Namen von Interpreten bzw. weitere Angaben zur Interpretation |
-522	|	Teilungsvermerk bei fortlaufenden Sammelwerken |
-523	|	Angaben über Erscheinungsweise und Erscheinungsdauer |
-524	|	Hinweise auf unselbständig enthaltene Werke |
-525	|	Herkunftsangaben |
-526	|	Titel von rezensierten Werken |
-527	|	Hinweise auf parallele Ausgaben |
-528	|	Titel von Rezensionen |
-529	|	Titel von fortlaufenden Beilagen |
-530	|	Titel von Bezugswerken |
-531	|	Hinweise auf frühere Ausgaben und Bände |
-533	|	Hinweise auf spätere Ausgaben und Bände |
-534	|	Titelkonkordanzen |
-535	|	Anzahl von Exemplaren |
-536	|	Voraussichtlicher Erscheinungstermin |
-537	|	Redaktionelle Bemerkungen |
-538	|	Angabe der Vervielfältigungsart |
-540	|	Internationale Standardbuchnummer (ISBN) |
-541	|	Internationale Standardnummer für Musikalien (ISMN) |
-542	|	Internationale Standardnummer für fortlaufende Sammelwerke (ISSN) |
-543	|	Internationale Standardnummer für Reports (ISRN) |
-544	|	Lokale Signatur |
-546	|	Postvertriebskennzeichen |
-550	|	Amtliche Druckschriftennummer |
-551	|	Verlags-, Produktions- und Bestellnummer von Musikalien und Tonträgern |
-552	|	Persistent Identifiers (PI) |
-553	|	Artikelnummer |
-554	|	Hochschulschriftennummer |
-556	|	Reportnummer |
-562	|	Patentnummer |
-564	|	Normnummer |
-566	|	Firmenschriftennummer |
-568	|	Nationalbibliographienummer der CIP-Aufnahme |
-570	|	Nationalbibliographienummer der falschen Aufnahme |
-574	|	Nationalbibliographienummer (NBN) |
-576	|	Pflichtablieferungsnummer |
-578	|	Fingerprint |
-580	|	Sonstige Standardnummer |
+501	|	Sammelfeld für unaufgegliederte Fußnoten | Mapped on skos/core#note.
+503	|	Deutsche Übersetzung des Hauptsachtitels bzw. Hinweis auf die musikalische Form | -
+505	|	Angabe von Nebentiteln | -
+507	|	Angaben zum Hauptsachtitel und zu den Zusätzen | -
+508	|	Angabe der Quelle der Aufnahme | -
+509	|	Vermerke zur Verfasserangabe | -
+510	|	Angaben zur Ausgabebezeichnung | Mapped on bibo/edition.
+511	|	Angaben zum Erscheinungsvermerk | -
+512	|	Angaben zum Kollationsvermerk bzw. zur physischen Beschreibung | -
+513	|	Änderungen im Impressum | -
+515	|	Ergänzungen zur Gesamttitelangabe | -
+516	|	Angaben über Schrift, Sprache und Vollständigkeit der Vorlage und musikalische Notation | -
+518	|	Angabe der Namen von Interpreten bzw. weitere Angaben zur Interpretation | -
+522	|	Teilungsvermerk bei fortlaufenden Sammelwerken | -
+523	|	Angaben über Erscheinungsweise und Erscheinungsdauer | Mapped on rdvocab.info/Elements/frequency.
+524	|	Hinweise auf unselbständig enthaltene Werke | -
+525	|	Herkunftsangaben | Mapped on dc/terms/bibliographicCitation.
+526	|	Titel von rezensierten Werken | -
+527	|	Hinweise auf parallele Ausgaben | -
+528	|	Titel von Rezensionen | -
+529	|	Titel von fortlaufenden Beilagen | Used for testing if supplement exists.
+530	|	Titel von Bezugswerken | -
+531	|	Hinweise auf frühere Ausgaben und Bände | -
+533	|	Hinweise auf spätere Ausgaben und Bände | -
+534	|	Titelkonkordanzen | -
+535	|	Anzahl von Exemplaren | -
+536	|	Voraussichtlicher Erscheinungstermin | -
+537	|	Redaktionelle Bemerkungen | -
+538	|	Angabe der Vervielfältigungsart | -
+540	|	Internationale Standardbuchnummer (ISBN) | Mapped on bibo/isbn.
+541	|	Internationale Standardnummer für Musikalien (ISMN) | Mapped on mo/ismn.
+542	|	Internationale Standardnummer für fortlaufende Sammelwerke (ISSN) | Mapped on bibo/issn.
+543	|	Internationale Standardnummer für Reports (ISRN) | -
+544	|	Lokale Signatur | -
+546	|	Postvertriebskennzeichen | -
+550	|	Amtliche Druckschriftennummer | -
+551	|	Verlags-, Produktions- und Bestellnummer von Musikalien und Tonträgern | -
+552	|	Persistent Identifiers (PI) | If matches DOI or urn format mapped on bibo/doi or $[ns-lobid-vocab]urn respectively.
+553	|	Artikelnummer | -
+554	|	Hochschulschriftennummer | -
+556	|	Reportnummer | -
+562	|	Patentnummer | -
+564	|	Normnummer | -
+566	|	Firmenschriftennummer | -
+568	|	Nationalbibliographienummer der CIP-Aufnahme | -
+570	|	Nationalbibliographienummer der falschen Aufnahme | -
+574	|	Nationalbibliographienummer (NBN) | -
+576	|	Pflichtablieferungsnummer | -
+578	|	Fingerprint | -
+580	|	Sonstige Standardnummer | -
 590	|	Hauptsachtitel und ggf. zu ergänzende Urheber der Quelle |
 591	|	Verfasserangabe der Quelle |
 592	|	Abteilung / Unterreihe der Quelle |
