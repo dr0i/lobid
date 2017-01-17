@@ -75,19 +75,21 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 088	|	FREI DEFINIERBARE ANWENDERSPEZIFISCHE ANGABEN, KENNZEICHEN UND CODES | Used for creating reset item id.
 089	|	Bandangaben in Vorlageform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number. One of the alternatives for non-existing 425.
 090	|	Bandangaben in Sortierform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number.
-100	|	Name der 1. Person in Ansetzungsform |
-101	|	Verweisungsformen zum Namen der 1. Person |
-102	|	Identifikationsnummer des Personennamensatzes der 1. Person |
-103	|	Körperschaft, bei der die 1. Person beschäftigt ist |
-104	|	Name der 2. Person in Ansetzungsform |
-105	|	Verweisungsformen zum Namen der 2. Person |
-106	|	Identifikationsnummer des Personennamensatzes der 2. Person |
-107	|	Körperschaft, bei der die 2. Person beschäftigt ist |
-…	|	|
-196	|	Name der 25. Person in Ansetzungsform |
-197	|	Verweisungsformen zum Namen der 25. Person |
-198	|	Identifikationsnummer des Personennamensatzes der 25. Person |
+1?? |  | If something matches a GND-id in the 100s fields then it is put into creatorPersonId to work with it. Is put into marcrelName to test if it matches specific LoC vocabulary of bibo. 
+100	|	Name der 1. Person in Ansetzungsform | Used for creatorLabel and then mapped on dc/terms/creator.
+101	|	Verweisungsformen zum Namen der 1. Person | 
+102	|	Identifikationsnummer des Personennamensatzes der 1. Person | Used for creatorLabel and then mapped on dc/terms/creator.
+103	|	Körperschaft, bei der die 1. Person beschäftigt ist | 
+104	|	Name der 2. Person in Ansetzungsform | Used for creatorLabel and then mapped on dc/terms/creator. 104f mapped on id.loc.gov/vocabulary/relators/hnr if GND-id.
+105	|	Verweisungsformen zum Namen der 2. Person | 
+106	|	Identifikationsnummer des Personennamensatzes der 2. Person | 
+107	|	Körperschaft, bei der die 2. Person beschäftigt ist | 
+… 1[02468][048]	|	| Used for creatorLabel and then mapped on dc/terms/creator.
+196	|	Name der 25. Person in Ansetzungsform | 
+197	|	Verweisungsformen zum Namen der 25. Person | 
+198	|	Identifikationsnummer des Personennamensatzes der 25. Person | 
 199	|	Körperschaft, bei der die 25. Person beschäftigt ist |
+2?? | | If something matches a GND-id in the 200s fields then it is put into creatorCorporateBodyId and contributorCorporateBodyId to work with it.
 200	|	Name der 1. Körperschaft in Ansetzungsform |
 201	|	Verweisungsformen zum Namen der 1. Körperschaft |
 202	|	Identifikationsnummer des Körperschaftsnamensatzes der 1. Körperschaft |
@@ -98,64 +100,44 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 296	|	Name der 25. Körperschaft in Ansetzungsform |
 297	|	Verweisungsformen zum Namen der 25. Körperschaft |
 298 | Identifikationsnummer des Körperschaftsnamensatzes der 25. Körperschaft | 
-305	|	Identifikationsnummer des Einheitssachtitelsatzes |
-331	|	Hauptsachtitel in Vorlageform oder Mischform |
-335	|	Zusätze zum Hauptsachtitel |
-341	|	1. Parallelsachtitel in Vorlageform oder Mischform |
-343	|	Zusätze zum 1. Parallelsachtitel |
-345	|	2. Parallelsachtitel in Vorlageform oder Mischform |
-347	|	Zusätze zum 2. Parallelsachtitel |
-349	|	3. Parallelsachtitel in Vorlageform oder Mischform |
-351	|	Zusätze zum 3. Parallelsachtitel |
-353	|	4. Parallelsachtitel in Vorlageform oder Mischform |
-355	|	Zusätze zum 4. Parallelsachtitel |
-359	|	Verfasserangabe |
-360	|	Unterreihen |
-365	|	Zusätze zur gesamten Vorlage |
-369	|	Verfasserangabe zur gesamten Vorlage |
-370	|	Weitere Sachtitel |
-376	|	Normierte Zeitschriftentitel |
-400	|	Ausgabebezeichnung in normierter Form |
-403	|	Ausgabebezeichnung in Vorlageform |
-405	|	Erscheinungsverlauf |
-406	|	Normierter Erscheinungsverlauf |
-407	|	Kartographische Materialien: Mathematische Angaben |
-420	|	Mehrteilige, unselbständig erschienene Werke: Zusammenfassende und offene Aufführung von Teilen |
-425	|	Erscheinungsjahr(e) |
-426	|	Datumsangaben |
-427	|	Zusammenfassende Bestandsangaben |
-429	|	Bestandslücken |
-431	|	Zusammenfassende Register |
-432	|	Zusammenfassende und offene Bandaufführung |
-433	|	Umfangsangabe |
-434	|	Illustrationsangabe / Technische Angaben zu Tonträgern |
-435	|	Formatangabe |
-437	|	Angabe von Begleitmaterialien |
-451	|	1. Gesamttitel in Vorlageform |
-452	|	Standardnummern des 1. Gesamttitels |
-453	|	Identifikationsnummer des 1. Gesamttitels |
-455	|	Bandangabe |
-456	|	Bandangabe in Sortierform |
-461	|	2. Gesamttitel in Vorlageform |
-462	|	Standardnummern des 2. Gesamttitels |
-463	|	Identifikationsnummer des 2. Gesamttitels |
-465	|	Bandangabe |
-466	|	Bandangabe in Sortierform |
-471	|	3. Gesamttitel in Vorlageform |
-472	|	Standardnummern des 3. Gesamttitels |
-473	|	Identifikationsnummer des 3. Gesamttitels |
-475	|	Bandangabe |
-476	|	Bandangabe in Sortierform |
-481	|	4. Gesamttitel in Vorlageform |
-482	|	Standardnummern des 4. Gesamttitels |
-483	|	Identifikationsnummer des 4. Gesamttitels |
-485	|	Bandangabe |
-486	|	Bandangabe in Sortierform |
-491	|	5. Gesamttitel in Vorlageform |
-492	|	Standardnummern des 5. Gesamttitels |
-493	|	Identifikationsnummer des 5. Gesamttitels |
-495	|	Bandangabe|
-496	|	Bandangabe in Sortierform |
+305	|	Identifikationsnummer des Einheitssachtitelsatzes | -
+331	|	Hauptsachtitel in Vorlageform oder Mischform | Used for creating title if no other title exists. Or for generating title by concating it with 089 or 090.
+335	|	Zusätze zum Hauptsachtitel | Mapped on rdvocab.info/Elements/otherTitleInformation.
+341	|	1. Parallelsachtitel in Vorlageform oder Mischform | Mapped on dc/terms/alternative.
+343	|	Zusätze zum 1. Parallelsachtitel | Mapped on dc/terms/alternative.
+345	|	2. Parallelsachtitel in Vorlageform oder Mischform | Mapped on dc/terms/alternative.
+347	|	Zusätze zum 2. Parallelsachtitel | Mapped on dc/terms/alternative.
+349	|	3. Parallelsachtitel in Vorlageform oder Mischform | -
+351	|	Zusätze zum 3. Parallelsachtitel | -
+353	|	4. Parallelsachtitel in Vorlageform oder Mischform | -
+355	|	Zusätze zum 4. Parallelsachtitel | -
+359	|	Verfasserangabe | Mapped on rdvocab.info/Elements/statementOfResponsibility.
+360	|	Unterreihen | -
+365	|	Zusätze zur gesamten Vorlage | -
+369	|	Verfasserangabe zur gesamten Vorlage | -
+370	|	Weitere Sachtitel | -
+376	|	Normierte Zeitschriftentitel | Mapped on bibo/shortTitle.
+400	|	Ausgabebezeichnung in normierter Form | -
+403	|	Ausgabebezeichnung in Vorlageform | -
+405	|	Erscheinungsverlauf | -
+406	|	Normierter Erscheinungsverlauf | -
+407	|	Kartographische Materialien: Mathematische Angaben | Mapped on rdvocab.info/Elements/longitudeAndLatitude.
+420	|	Mehrteilige, unselbständig erschienene Werke: Zusammenfassende und offene Aufführung von Teilen | -
+425	|	Erscheinungsjahr(e) | Used for creating dateFix or dateRange which is mapped on dc/terms/issued.
+426	|	Datumsangaben | -
+427	|	Zusammenfassende Bestandsangaben | -
+429	|	Bestandslücken | -
+431	|	Zusammenfassende Register | -
+432	|	Zusammenfassende und offene Bandaufführung | Mapped on bibo/volume.
+433	|	Umfangsangabe | Mapped on iflastandards.info/ns/isbd/elements/P1053 (hasExtent).
+434	|	Illustrationsangabe / Technische Angaben zu Tonträgern | -
+435	|	Formatangabe | -
+437	|	Angabe von Begleitmaterialien | -
+451/461/471/481/491	|	1./2./3./4./5. Gesamttitel in Vorlageform | Used for dc/elements/1.1/isPartOf.
+452/462/472/482/492	|	Standardnummern des 1./2./3./4./5. Gesamttitels | -
+453/463/473/483/493	|	Identifikationsnummer des 1./2./3./4./5. Gesamttitels | Used at idTitleSeries and then mapped at [ns-lobid-vocab]SeriesRelation
+455/465/475/485/495	|	Bandangabe [für 1./2./3./4./5. Gesamttitel] | -
+456/466/476/486/496	|	Bandangabe in Sortierform [für 1./2./3./4./5. Gesamttitel] | -
 501	|	Sammelfeld für unaufgegliederte Fußnoten | Mapped on skos/core#note.
 503	|	Deutsche Übersetzung des Hauptsachtitels bzw. Hinweis auf die musikalische Form | -
 505	|	Angabe von Nebentiteln | -
@@ -206,54 +188,54 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 576	|	Pflichtablieferungsnummer | -
 578	|	Fingerprint | -
 580	|	Sonstige Standardnummer | -
-590	|	Hauptsachtitel und ggf. zu ergänzende Urheber der Quelle |
-591	|	Verfasserangabe der Quelle |
-592	|	Abteilung / Unterreihe der Quelle |
-593	|	Ausgabebezeichnung der Quelle in Vorlageform |
-594	|	Erscheinungsort der Quelle |
-595	|	Erscheinungsjahr der Quelle |
-596	|	Bandzählung, Jahreszählung, Heftzählung, Umfangs- und Illustrationsangabe der Quelle |
-597	|	Gesamttitel der Quelle |
-598	|	Fußnote der Quelle |
-599	|	Standardnummern der Quelle |
-600	|	1. Teil der Verweisung |
-601	|	Bemerkungen zum 1. Teil der Verweisung |
-602	|	2. Teil der Verweisung |
-603	|	Bemerkungen zum 2. Teil der Verweisung |
-646	|	Besitznachweis für die Verfilmungsvorlage |
-647	|	Besitznachweis für den Sekundärform-Master |
-651	|	Fußnote zur Computerdatei |
-654	|	Systemvoraussetzungen für die Computerdatei |
-655	|	Elektronische Adresse und Zugriffsart für eine Computerdatei im Fernzugriff |
-659	|	Ergänzende Bemerkungen zur Computerdatei |
-661	|	Angaben zum Text der Unterlage |
-662	|	Angaben zum Äußeren der Unterlage |
-663	|	Bezugswerke |
-664	|	Provenienz |
-669	|	Redaktionelle Bemerkungen zur Unterlage |
-670	|	Sachtitel in abweichender Orthographie |
-671	|	Andersschriftliche Darstellung |
-672	|	Autorenname in normierter Form |
-673	|	Ort in normierter Form |
-674	|	Veranstaltungsjahr / Erscheinungsjahr des Originals |
-675	|	Stichwörter in abweichender Orthographie |
-680	|	Werkverzeichnis |
-681	|	Angaben zum Musikwerk |
-682	|	Angaben zum Musikincipit |
-683	|	Angaben zur Besetzung |
-700	|	Notation eines Klassifikationssystems |
-705	|	DDC (Dewey Decimal Classification) analytisch |
-710	|	Schlagwörter und Schlagwortketten |
-711	|	Schlagwörter und Schlagwortketten nach anderen Regelwerken |
-720	|	Stichwörter |
-730	|	Precis |
-740	|	Subject Headings |
-750	|	1. Inhaltliche Zusammenfassung |
-751	|	Verfasser der 1. inhaltlichen Zusammenfassung |
-752	|	Sprachen der 1. inhaltlichen Zusammenfassung |
-753	|	2. inhaltliche Zusammenfassung |
-754	|	Verfasser der 2. inhaltlichen Zusammenfassung |
-755	|	Sprachen der 2. inhaltlichen Zusammenfassung |
-756	|	3. inhaltliche Zusammenfassung |
-757	|	Verfasser der 3. inhaltlichen Zusammenfassung |
-758	|	Sprachen der 3. inhaltlichen Zusammenfassung |
+590	|	Hauptsachtitel und ggf. zu ergänzende Urheber der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+591	|	Verfasserangabe der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+592	|	Abteilung / Unterreihe der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+593	|	Ausgabebezeichnung der Quelle in Vorlageform | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+594	|	Erscheinungsort der Quelle | -
+595	|	Erscheinungsjahr der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation. Also used at @dateFix if no other value exists and then later mapped on dc/terms/issued. 
+596	|	Bandzählung, Jahreszählung, Heftzählung, Umfangs- und Illustrationsangabe der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+597	|	Gesamttitel der Quelle | -
+598	|	Fußnote der Quelle | Concat of 59[0123568] and mapped on dc/terms/bibliographicCitation.
+599	|	Standardnummern der Quelle | Used at dctIsPartOfHbzIdArticle if matches a lobid-resource. Later used for dc/elements/1.1/isPartOf.
+600	|	1. Teil der Verweisung | -
+601	|	Bemerkungen zum 1. Teil der Verweisung | -
+602	|	2. Teil der Verweisung | -
+603	|	Bemerkungen zum 2. Teil der Verweisung | -
+646	|	Besitznachweis für die Verfilmungsvorlage | -
+647	|	Besitznachweis für den Sekundärform-Master | -
+651	|	Fußnote zur Computerdatei | -
+654	|	Systemvoraussetzungen für die Computerdatei | -
+655	|	Elektronische Adresse und Zugriffsart für eine Computerdatei im Fernzugriff | Used for checking if fulltext is online. Shown if no description is available.
+659	|	Ergänzende Bemerkungen zur Computerdatei | -
+661	|	Angaben zum Text der Unterlage | -
+662	|	Angaben zum Äußeren der Unterlage | -
+663	|	Bezugswerke | -
+664	|	Provenienz | -
+669	|	Redaktionelle Bemerkungen zur Unterlage | -
+670	|	Sachtitel in abweichender Orthographie | -
+671	|	Andersschriftliche Darstellung | -
+672	|	Autorenname in normierter Form | -
+673	|	Ort in normierter Form | -
+674	|	Veranstaltungsjahr / Erscheinungsjahr des Originals | -
+675	|	Stichwörter in abweichender Orthographie | Mapped on [ns-lobid-vocab]titleKeyword.
+680	|	Werkverzeichnis | -
+681	|	Angaben zum Musikwerk | -
+682	|	Angaben zum Musikincipit | -
+683	|	Angaben zur Besetzung | -
+700	|	Notation eines Klassifikationssystems | Mapped on dc/terms/subject if matches dewey class. 700n mapped on [ns-lobid-vocab]nwbibsubject.
+705	|	DDC (Dewey Decimal Classification) analytisch | Mapped on dc/terms/subject if matches dewey class.
+710	|	Schlagwörter und Schlagwortketten | Mapped on purl.org/lobid/lv#subjectLabel.
+711	|	Schlagwörter und Schlagwortketten nach anderen Regelwerken | Mapped on purl.org/lobid/lv#subjectLabel.
+720	|	Stichwörter | -
+730	|	Precis | -
+740	|	Subject Headings | -
+750	|	1. Inhaltliche Zusammenfassung | Mapped on dc/terms/abstract.
+751	|	Verfasser der 1. inhaltlichen Zusammenfassung | -
+752	|	Sprachen der 1. inhaltlichen Zusammenfassung | -
+753	|	2. inhaltliche Zusammenfassung | -
+754	|	Verfasser der 2. inhaltlichen Zusammenfassung | -
+755	|	Sprachen der 2. inhaltlichen Zusammenfassung | -
+756	|	3. inhaltliche Zusammenfassung | -
+757	|	Verfasser der 3. inhaltlichen Zusammenfassung | -
+758	|	Sprachen der 3. inhaltlichen Zusammenfassung | -
