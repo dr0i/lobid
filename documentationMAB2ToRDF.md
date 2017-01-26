@@ -84,8 +84,8 @@ Number MAB2 | Field name MAB2 | if & how transformed to RDF
 076/079/081	|	FREI DEFINIERBARE ANWENDERSPEZIFISCHE ANGABEN, KENNZEICHEN UND CODES | -
 080	|	ZUGRIFFS- UND UPDATE-ANWEISUNGEN | -
 088	|	FREI DEFINIERBARE ANWENDERSPEZIFISCHE ANGABEN, KENNZEICHEN UND CODES | Used for creating reset item id.
-089	|	Bandangaben in Vorlageform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number. One of the alternatives for non-existing 425.
-090	|	Bandangaben in Sortierform | Mapping on bibo/volume. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number.
+089	|	Bandangaben in Vorlageform | Mapping on lobid/lv#volumeIn. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number. One of the alternatives for non-existing 425.
+090	|	Bandangaben in Sortierform | Mapping on lobid/lv#volumeIn. Used for [ns-lobid-vocab]numbering and creating title by concating superordinated title and volume number.
 1?? |  | If something matches a GND-id in the 100s fields then it is put into creatorPersonId to work with it. Is put into marcrelName to test if it matches specific LoC vocabulary of bibo. 
 100	|	Name der 1. Person in Ansetzungsform | Used for creatorLabel and then mapped on dc/terms/creator.
 101	|	Verweisungsformen zum Namen der 1. Person | 
